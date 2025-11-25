@@ -2,17 +2,17 @@ services:
   - type: web
     name: medical-chatbot-backend
     plan: starter
-    runtime: python
+    runtime: python-3.10
 
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port 10000
 
     envVars:
       - key: PYTHON_VERSION
-        value: 3.10
+        value: 3.10.13
 
       - key: GROQ_API_KEY
-        sync: false   # <-- DO NOT PUT VALUE HERE
+        sync: false
 
       - key: CONV_MODEL
         value: openai/gpt-oss-120b
@@ -21,4 +21,4 @@ services:
         value: llama-3.3-70b-versatile
 
       - key: DATABASE_URL
-        sync: false   # <-- You will set this inside Render dashboard
+        sync: false
